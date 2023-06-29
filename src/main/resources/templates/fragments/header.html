@@ -1,16 +1,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <div th:fragment="header-css">
 
         <title>Spring Boot Blog</title>
 
         <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-              th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+              th:href="@{/webjars/bootstrap/3.4.0/css/bootstrap.min.css}"
               rel="stylesheet" media="screen"/>
 
-        <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
-                th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/3.5.0/jquery.min.js"
+                th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
 
         <link rel="stylesheet" th:href="@{/css/main.css}"
               href="../../css/main.css"/>
@@ -32,6 +32,9 @@
                 <!-- show My Blog only if user is authenticated -->
                 <ul class="nav navbar-nav" sec:authorize="hasRole('USER')">
                     <li class="active"><a th:href="@{|/blog/${username}|}">My Blog</a></li>
+<!--                    <li class="active"><a th:href="'/blog/'+${user.name}'">My Blog</a></li>-->
+<!--                    <li class="active"><a th:href="@{'/blog/' + ${user.name}}">My Blog</a></li>-->
+
                 </ul>
                 <!-- show new post only if user is authenticated -->
                 <ul class="nav navbar-nav" sec:authorize="hasRole('USER')">

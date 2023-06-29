@@ -4,6 +4,7 @@ package md.practice.blogger.controller;
 import md.practice.blogger.model.User;
 import md.practice.blogger.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,9 +23,10 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
+    public String registration(Model model,  @AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser) {
 
         model.addAttribute("user", new User());
+        model.addAttribute("username", authUser!=null? authUser.getUsername() : null);
         return "/registration";
     }
 

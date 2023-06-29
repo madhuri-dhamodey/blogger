@@ -6,6 +6,7 @@ import md.practice.blogger.model.User;
 import md.practice.blogger.service.PostService;
 import md.practice.blogger.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,7 +31,7 @@ public class PostController {
 
     @RequestMapping(value = "/newPost", method = RequestMethod.GET)
     public String newPost(Principal principal,
-                          Model model) {
+                          Model model,  @AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser) {
 
         Optional<User> user = userService.findByUsername(principal.getName());
 
@@ -39,7 +40,7 @@ public class PostController {
             post.setUser(user.get());
 
             model.addAttribute("post", post);
-
+            model.addAttribute("username", authUser!=null? authUser.getUsername() : null);
             return "/postForm";
 
         } else {

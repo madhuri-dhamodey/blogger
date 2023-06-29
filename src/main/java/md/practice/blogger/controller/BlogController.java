@@ -7,6 +7,7 @@ import md.practice.blogger.service.UserService;
 import md.practice.blogger.util.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +33,7 @@ public class BlogController {
     @RequestMapping(value = "/blog/{username}", method = RequestMethod.GET)
     public String blogForUsername(@PathVariable String username,
                                   @RequestParam(defaultValue = "0") int page,
-                                  Model model) {
+                                  Model model , @AuthenticationPrincipal org.springframework.security.core.userdetails.User authUser) {
 
         Optional<User> optionalUser = userService.findByUsername(username);
 
@@ -43,6 +44,7 @@ public class BlogController {
 
             model.addAttribute("pager", pager);
             model.addAttribute("user", user);
+            model.addAttribute("username", authUser!=null? authUser.getUsername() : null);
 
             return "/posts";
 

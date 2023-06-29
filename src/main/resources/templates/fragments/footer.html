@@ -10,9 +10,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <span sec:authorize="isAuthenticated()">
-                | Logged user: <span sec:authentication="name"></span> |
-                Roles: <span sec:authentication="principal.authorities"></span> |
+<!--                <span sec:authorize="isAuthenticated()">-->
+<!--                | Logged user: <span sec:authentication="name"></span> |-->
+<!--                Roles: <span sec:authentication="principal.authorities"></span> |-->
                 <a th:href="@{/logout}">Sign Out</a>
             </span>
 
@@ -25,7 +25,7 @@
     </div>
 
     <script type="text/javascript"
-            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            src="webjars/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </div>
 </body>

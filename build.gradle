@@ -46,10 +46,10 @@ dependencies {
 
 
 	// Optional, for bootstrap
-	implementation 'org.webjars:bootstrap:3.3.7'
+	implementation 'org.webjars:bootstrap:3.4.0'
 
 	// Optional, for jQuery
-	implementation 'org.webjars:jquery:2.1.4'
+	implementation 'org.webjars:jquery:3.5.0'
 
 }
 
