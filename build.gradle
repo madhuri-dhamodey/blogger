@@ -1,0 +1,58 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.12'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'md.practice'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// HAL REST Browser
+// https://mvnrepository.com/artifact/org.springframework.data/spring-data-rest-hal-browser
+	implementation 'org.springframework.data:spring-data-rest-hal-browser:2.4.0.RELEASE'
+
+	// Spring Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// Thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.5.RELEASE'
+
+
+	// https://mvnrepository.com/artifact/org.postgresql/postgresql
+	implementation 'org.postgresql:postgresql:42.6.0'
+
+
+
+	// Optional, for bootstrap
+	implementation 'org.webjars:bootstrap:3.3.7'
+
+	// Optional, for jQuery
+	implementation 'org.webjars:jquery:2.1.4'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

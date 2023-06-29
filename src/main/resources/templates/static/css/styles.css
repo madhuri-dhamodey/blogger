@@ -1,0 +1,23 @@
+
+
+/* Styles for the blog list page */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.blog-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.blog-item h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.blog-item p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
